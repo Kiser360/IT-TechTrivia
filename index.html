@@ -7,21 +7,30 @@
         <title>IT TECH TRIVIA</title>
         <meta name="description" content="Have fun and share some IT knowledge">
         <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="material.css">
         <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
         <script src="auth.js"></script>
     </head>
     <body>
         <div class="authenticating" id="header">
             <div id="topBar"></div>
-            <div id="actionBar"></div>
+            <div id="actionBar">
+                <div id="profile" onclick="toggleAuth()">
+                    <div id="prof_name">Login</div>
+                    <img id="prof_pic" src=""/>
+                </div>
+            </div>
             <div id="authForm">
                 <h1>Login with Google Account</h1>
-                <input type="text" placeholder="Username"></input>
-                <input type="text" placeholder="password"></input>
                 <button type="button" onclick="googleAuth()">Auth</button>
             </div>
         </div>
-        <button id="button" onclick="toggleAuth()">Click Me</button>
+        <div id="modal">
+            <div class="modal_cont">
+                
+            </div>
+        </div>
+        <div id="fab" class="" onclick="toggleModal()"></div>
     </body>
 </html>
 <script>
@@ -32,6 +41,20 @@
         document.getElementById("header").className = "authenticating";
     else
         document.getElementById("header").className = "";
+    }
+    function toggleModal() {
+        var state = document.getElementById("modal").className;
+        if (state == "")
+            document.getElementById("modal").className = "active";
+        else
+            document.getElementById("modal").className = "";
+    }
+    function toggleFAB() {
+        var state = document.getElementById("fab").className;
+        if (state == "")
+            document.getElementById("fab").className = "active";
+        else
+            document.getElementById("fab").className = "";
     }
 </script>
     

@@ -3,7 +3,7 @@
 var USERS_LOCATION = "https://brilliant-torch-5122.firebaseio.com/users";
 
 function googleAuth() {
-    var FB = new Firebase("https://brilliant-torch-5122.firebaseio.com/");
+    var FB = new Firebase(USERS_LOCATION);
     FB.authWithOAuthPopup("google", function(error, authData) {
         if (error) 
         {
@@ -23,7 +23,7 @@ function googleAuth() {
 }
 
 function checkIfUserExists(authData) {
-    var usersRef = new Firebase("https://brilliant-torch-5122.firebaseio.com/users");
+    var usersRef = new Firebase(USERS_LOCATION);
     usersRef.child(authData.google.email.split("@")[0]).once('value', function(snapshot) {
         var exists = (snapshot.val() !== null);
         if (exists)
@@ -37,11 +37,14 @@ function checkIfUserExists(authData) {
             alert("New User: ");
             addUser(authData);
         }
+        document.getElementById("prof_pic").src = authData.google.cachedUserProfile.picture;
+        document.getElementById("prof_name").innerHTML = authData.google.displayName;
+        toggleFAB();
     });
 }
 
 function addUser(authData) {
-    usersRef = new Firebase("https://brilliant-torch-5122.firebaseio.com/users/" + authData.google.email.split("@")[0]);
+    usersRef = new Firebase(USERS_LOCATION + authData.google.email.split("@")[0]);
     usersRef.set({
         displayName: authData.google.displayName,
         fullName: authData.google.cachedUserProfile.given_name +" "+ authData.google.cachedUserProfile.family_name,
