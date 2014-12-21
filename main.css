@@ -101,7 +101,7 @@ body {
     opacity:1;
     pointer-events:all;
 }
-#modal :first-child {
+#modal .modal_cont {
     display:block;
     height:75vh;
     min-width:320px;
@@ -115,8 +115,9 @@ body {
     -webkit-transform:translate3d(100vw,0,0);
     transition:.35s ease-in-out transform;
     -webkit-transition:.35s ease-in-out -webkit-transform;
+    overflow:auto;
 }
-#modal.active :first-child {
+#modal.active .modal_cont {
     transform:translate3d(0,0,0);
     -webkit-transform:translate3d(0,0,0);
 }

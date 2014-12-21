@@ -55,3 +55,32 @@ body {font-family:roboto;}
     text-transform:uppercase;
     color:rgba(0,0,0,.87);
 }
+
+input.floatLabelInput {
+    width:100%;
+    background:transparent;
+    padding-bottom:4px;
+    padding-top:4px;
+    margin-top:20px;
+    border:none;
+    border-bottom:2px solid rgba(0,0,0,.54);
+    font-size:16px;
+}
+input.floatLabelInput + span {
+    position:relative;
+    height:0px;
+    width:0px;
+    margin:0;
+    padding:0;
+    top:-48px;
+    font-size:12px;
+    font-weight:400;
+    color:rgba(0,0,0,.54);
+}
+input.floatLabelInput:focus {
+    border-bottom: 2px solid rgba(255,255,255,.87);
+    outline:none;
+}
+input.floatLabelInput:focus + span {
+    color:rgba(255,255,255,.87);
+}
