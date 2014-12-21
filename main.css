@@ -103,6 +103,7 @@ body {
 }
 #modal .modal_cont {
     display:block;
+    position:relative;
     height:75vh;
     min-width:320px;
     max-width:640px;
@@ -120,4 +121,62 @@ body {
 #modal.active .modal_cont {
     transform:translate3d(0,0,0);
     -webkit-transform:translate3d(0,0,0);
+}
+#categoryList {
+    display:flex;
+    height:96px;
+    width:100%;
+    position:relative;
+    margin:0 auto;
+    margin-bottom:8px;
+}
+#categoryList label {
+    display:inline-block;
+    width:25%;
+    height:100%;
+}
+#categoryList label:hover {
+    background:#222;
+}
+#categoryList span {
+    display:block;
+    height:2px;
+    position:absolute;
+    bottom:0px;
+    background:black;
+    transition:.2s .02s left ease-in, .2s right ease-out;
+}
+#hardware:checked ~ span {
+    left:0px;
+    right:75%;
+}
+#software:checked ~ span {
+    left:25%;
+    right:50%;
+}
+#OS:checked ~ span {
+    left:50%;
+    right:25%;
+}
+#STtools:checked ~ span {
+    left:75%;
+    right:0;
+}
+#questionText {
+    display:block;
+    font-family:roboto;
+    font-size:16px;
+    height:60px;
+    width:100%;
+    margin-bottom:8px;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid rgba(0,0,0,.54);
+}
+#questionText:focus {
+    outline:none;
+    border-bottom:2px solid rgba(255,255,255,.87);
+}
+.hide {
+    display:none;
 }

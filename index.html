@@ -29,13 +29,27 @@
             <div class="modal_cont">
                 <div class="headline">Create a Question</div>
                 <div class="subhead">Category</div>
+                <div id="categoryList">
+                    <input class="hide" type="radio" id="hardware" value="hardware" name="category" checked="checked"/>
+                    <input class="hide" type="radio" id="software" value="software" name="category"/>
+                    <input class="hide" type="radio" id="OS" value="OS" name="category"/>
+                    <input class="hide" type="radio" id="STtools" value="STtools" name="category"/>
+                    <label for="hardware"></label>
+                    <label for="software"></label>
+                    <label for="OS"></label>
+                    <label for="STtools"></label>
+                    <span></span>
+                </div>
                 <div class="subhead">Question</div>
+                <textarea id="questionText"></textarea>
                 <div class="subhead">Answers</div>
-                <input class="floatLabelInput" maxlength="90"><span>Answer 1</span></input>
-                <input class="floatLabelInput" maxlength="90"><span>Answer 2</span></input>
-                <input class="floatLabelInput" maxlength="90"><span>Answer 3</span></input>
-                <input class="floatLabelInput" maxlength="90"><span>Answer 4</span></input>
+                <input class="answer floatLabelInput" maxlength="90"><span>Answer 1</span></input>
+                <input class="answer floatLabelInput" maxlength="90"><span>Answer 2</span></input>
+                <input class="answer floatLabelInput" maxlength="90"><span>Answer 3</span></input>
+                <input class="answer floatLabelInput" maxlength="90"><span>Answer 4</span></input>
+                <div class="button raised" onclick="addQuestion()">Submit</div>
             </div>
+            
         </div>
         <div id="fab" class="" onclick="toggleModal()"></div>
     </body>
