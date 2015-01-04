@@ -13,31 +13,53 @@
         <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
         <link rel="import" href="bower_components/core-menu/core-menu.html">
         <link rel="import" href="bower_components/core-item/core-item.html">
+        <link rel="import" href="bower_components/core-icon/core-icon.html">
+        <link rel="import" href="bower_components/core-image/core-image.html">
+        <link rel="import" href="bower_components/core-tooltip/core-tooltip.html">
         <link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
         <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-        <script src="auth.js"></script>
-        <style>
-            body {
-                font-family:sans-serif;
-                background:#333;
-            }
-        </style>
+        <link rel="import" href="bower_components/paper-fab/paper-fab.html">
+        <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+        <link rel="import" href="bower_components/paper-input/paper-input.html">
+        <link rel="import" href="bower_components/paper-action-dialog/paper-action-dialog.html">
+        <script src="auth-Polymer.js"></script>
     </head>
     <body fullbleed vertical layout unresolved>
         <core-scaffold mode="waterfall">
-            <core-header-panel navigation flex>
-                <core-toolbar>
-                    <span>Menu :)</span>
+            <core-header-panel mode="seamed" navigation flex>
+                <core-toolbar style="cursor:pointer;" onclick="googleAuth()">
+                    <core-image id="activeUserPic" style="height:48px; width:48px; border-radius:50%; background:cyan;" sizing="cover" src=""></core-image>
+                    <span id="activeUsername" flex>Click to Login</span>
                 </core-toolbar>
                 <core-menu>
                     <core-item label="One"></core-item>
                     <core-item label="Two"></core-item>
                 </core-menu>
             </core-header-panel>
-            <span tool flex>Title</span>
+            <span tool flex></span>
             <paper-icon-button icon="more-vert" tool></paper-icon-button>
             <div class="content">
                 Hit the f'n button to show the menu
             </div>
         </core-scaffold>
+        <paper-fab icon="cloud" onclick="document.getElementById('QuestionDialog').toggle();" style="position:fixed; right:16px; bottom:16px;"></paper-fab>
+        <paper-action-dialog id="QuestionDialog" heading="Create a Question" role="dialog" backdrop layout vertical aria-label="Create a Question" tabindex="-1" style="position: fixed; width:480px; outline:none;">
+            <paper-tabs id="categories" selected="0">
+                <paper-tab><core-icon icon="settings-input-component"></core-icon></paper-tab>
+                <paper-tab><core-icon icon="apps"></core-icon></paper-tab>
+                <paper-tab><core-icon icon="android"></core-icon></paper-tab>
+                <paper-tab><core-icon icon="home"></core-icon></paper-tab>
+            </paper-tabs>
+            <paper-input id="questionText" label="Question" floatingLabel layout vertical></paper-input>
+            <core-item layout horizontal>
+                <paper-input class="answer" label="Answer 1" floatingLabel flex></paper-input>
+                <paper-input class="answer" label="Answer 2" floatingLabel flex></paper-input>
+            </core-item>
+            <core-item layout horizontal>
+                <paper-input class="answer" label="Answer 3" floatingLabel flex></paper-input>
+                <paper-input class="answer" label="Answer 4" floatingLabel flex></paper-input>
+            </core-item>
+            <paper-button raised affirmative role="button" tab-index="-1">Submit</paper-button>
+        </paper-action-dialog>
     </body>
