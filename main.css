@@ -111,16 +111,23 @@ body {
     background:#333;
     margin:auto;
     padding:24px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    transform:translate3d(100vw,0,0);
-    -webkit-transform:translate3d(100vw,0,0);
+    transform:translate3d(100vw,100vh,0);
+    -webkit-transform:translate3d(100vw,100vh,0);
     transition:.35s ease-in-out transform;
     -webkit-transition:.35s ease-in-out -webkit-transform;
     overflow:auto;
 }
+#modal .modal_cont .button.raised {
+    box-shadow: none;
+    transition:0s;
+}
 #modal.active .modal_cont {
     transform:translate3d(0,0,0);
     -webkit-transform:translate3d(0,0,0);
+}
+#modal.active .modal_cont .button.raised {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition:.35s .5s;
 }
 #categoryList {
     display:flex;
